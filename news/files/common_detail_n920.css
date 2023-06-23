@@ -1,0 +1,18 @@
+@charset "utf-8";
+/*细览页加经典瞬间|每周一画等改版0920 */
+
+.related{border-bottom:1px #dddddd solid; border-top:1px #dddddd solid; margin:43px 0px 0px 0px; padding:15px 0px;}
+.related ul li a{ color:#00558e; font-size:16px; }
+.pos{ position:relative; height:248px;}
+.oneColumn .de_bannerS{ margin:0px; margin-top:15px;}
+.oneColumn {padding: 10px 66px 38px 66px;}
+.jdxj{ position:absolute; top:15px; right:0px; width:375px;height:248px;}
+.jdxj .title ul{ display:block; height:43px;}
+.jdxj .title ul li{ float:left; font-size:18px;color: #00558e;font-family: "微软雅黑", "宋体"; margin:0 4px;}
+.jdxj .title ul li a{color: #00558e;}
+.pages-date{ position:relative;border-bottom: 1px #dcdcdc solid;padding-top: 7px; text-align:left}
+.pages_print{position:absolute; border-bottom:none;top:7px;right:-12px;}
+.editor{ padding-bottom:30px;}
+
+
+#pageBreak{margin: 0 auto 35px auto;}

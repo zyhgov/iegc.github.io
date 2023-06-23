@@ -1,0 +1,39 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: inherit;
+    background-color: transparent;
+  }
+  h2{
+    text-align: center;
+  }
+  th,
+  td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #a49a9a;
+    text-align: left;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+
+  /* 打印样式 */
+  @media print {
+    table {
+      font-size: 0.8rem; /* 缩小字号，适应打印页面 */
+    }
+  }
+  button {
+    display: block; /* 将按钮设置为块级元素 */
+    margin: 0 auto; /* 水平居中 */
+    font-size: 1.5rem; /* 放大字号 */
+    padding: 0.5rem 1rem; /* 增加内边距 */
+    background-color: #1b4a97; /* 设置背景色 */
+    color: #fff; /* 设置文本颜色 */
+    border: none; /* 去掉边框 */
+    border-radius: 0.25rem; /* 设置圆角 */
+    cursor: pointer; /* 将光标设置为手型 */
+  }
