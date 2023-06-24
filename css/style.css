@@ -60,6 +60,7 @@ h6,
     transform-origin: center;
     transform-style: preserve-3d;
     perspective: 1000px;
+    width: 666px;
   }
   
   @keyframes spin {
