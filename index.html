@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>登录表单验证</title>
+  <!-- Favicon -->
+  <link href="./img/favicon.ico" rel="icon">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="loginimg/logo.png" alt="Logo" >
+    </div>
+    <form id="loginForm" onsubmit="return validateForm()">
+      <label for="username">账号:</label>
+      <input type="text" id="username" name="username" placeholder="须以22200起头且为9位" required pattern="22200\d{4}" title="账号必须以22200起头，且为9位数" onblur="checkUsername()"><span id="usernameValidation"></span><br><br>
+
+      <label for="password">密码:</label>
+      <input type="password" id="password" name="password" placeholder="默认abc12345" required pattern="^(?=.*\d)(?=.*[a-zA-Z]).{8,}$" title="密码必须为字母和数字结合，且长度至少为8位" onblur="checkPassword()"><span id="passwordValidation"></span><br><br>
+
+      <input type="submit" value="登录">
+      <button type="button" onclick="seekHelp()" >寻求帮助</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
