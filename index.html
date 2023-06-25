@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>IEGC·学号登录检查</title>
+  <link href="./img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('loginimg/di01.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .logo {
+      width: 600px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    #login-form {
+      background-color: transparent;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #login-form input[type="text"],
+    #login-form input[type="password"] {
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+
+    #login-form input[type="submit"] {
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    label {
+    font-weight: bold;
+    color: aliceblue;
+    font-size: 25px;
+    font-family: "黑体";
+  }
+  
+  #login-form input[type="text"],
+    #login-form input[type="password"] {
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      width: 100%;
+      color: white; /* 设置字体颜色为白色 */
+    }
+  #login-form input[type="text"]::placeholder,
+  #login-form input[type="password"]::placeholder {
+    color: rgb(27, 232, 255); /* 设置placeholder字体颜色为白色 */
+  }
+
+    /* 其他样式... */
+
+    @media (max-width: 600px) {
+      /* 在屏幕宽度小于600px时的样式调整 */
+      body {
+        background-size: contain;
+      }
+
+      .logo {
+        width: 150px;
+      }
+    }
+
+    .validation-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-left: 5px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .valid {
+    background-image: url("loginimg/对.png");
+    background-size: cover;
+    /* background-color: #8BC34A; */
+  }
+  
+  .invalid {
+    background-image: url("loginimg/叉号.png");
+    background-size: cover;
+    /* background-color: #F44336; */
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img class="logo" src="loginimg/logo.png" alt="Logo">
+    <form id="login-form">
+      <label for="studentid">学号：</label>
+      <input type="text" id="studentid" name="studentid" placeholder="须为大数据2203班学号" required pattern="22200\d{4}" title="须为大数据2203班学号" onblur="checkstudentid()"><span id="studentidValidation"></span><br>
+      <br>
+      <label for="password">密码：</label>
+      <input type="password" id="password" name="password" placeholder="默认abc12345" required pattern="^(?=.*\d)(?=.*[a-zA-Z]).{8,}$" title="密码必须为字母和数字结合，且长度至少为8位" onblur="checkPassword()"><span id="passwordValidation"></span><br>
+      <br>
+      <input type="submit" value="登录" onclick="login()">
+      <button type="button" onclick="seekHelp()" >寻求帮助</button>
+    </form>
+  </div>
+</body>
+</html>
+
+  <script>
+
+function checkstudentid() {
+    var studentidInput = document.getElementById("studentid");
+    var studentidValidation = document.getElementById("studentidValidation");
+  
+    if (/^22200\d{4}$/.test(studentidInput.value)) {
+      studentidValidation.className = "validation-icon valid";
+    } else {
+      studentidValidation.className = "validation-icon invalid";
+    }
+    return false
+  }
+  
+  function checkPassword() {
+    var passwordInput = document.getElementById("password");
+    var passwordValidation = document.getElementById("passwordValidation");
+  
+    if (/^(?=.*\d)(?=.*[a-zA-Z]).{8,}$/.test(passwordInput.value)) {
+      passwordValidation.className = "validation-icon valid";
+    } else {
+      passwordValidation.className = "validation-icon invalid";
+    }
+    return false
+  }
+  
+
+
+
+  var welcomeMessages = {
+  "222003854": "欢迎您，周煜同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003855": "欢迎您，扈桥同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003856": "欢迎您，龚俊同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003857": "欢迎您，李子恒同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003858": "欢迎您，朱亚男同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003859": "欢迎您，刘傲同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003860": "欢迎您，叶长忍同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003861": "欢迎您，张子扬同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003862": "欢迎您，胡胜圆同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003863": "欢迎您，叶宽同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003864": "欢迎您，张哲炜同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003865": "欢迎您，石东浩同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003866": "欢迎您，张欣平同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003867": "欢迎您，夏欣悦同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003868": "欢迎您，张洁瑜同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003869": "欢迎您，杨曾同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003871": "欢迎您，方天凯同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003872": "欢迎您，张永豪同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003873": "欢迎您，蔡紫怡同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003875": "欢迎您，胡爽同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003876": "欢迎您，冯丽璇同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003877": "欢迎您，徐凡凡同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003878": "欢迎您，姚凯臣同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003879": "欢迎您，陈明康同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003880": "欢迎您，王璐瑶同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003881": "欢迎您，顾文杰同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003882": "欢迎您，罗江铭同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003883": "欢迎您，张钊俞同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003884": "欢迎您，萧慧娟同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003885": "欢迎您，覃凤莎同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003886": "欢迎您，马晓艳同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003887": "欢迎您，昂文松保同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003888": "欢迎您，王鸿燕同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003889": "欢迎您，马丽琼同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003890": "欢迎您，仁增多杰同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003891": "欢迎您，田家旺同学，创新创业，你我共创！  来自创新创业指导委员会",
+  "222003892": "欢迎您，钟琴同学，创新创业，你我共创！  来自创新创业指导委员会",
+};
+
+    // 222003870和222003874这两个学号的例外处理
+    welcomeMessages["222003870"] = "检测到您的学号并非大数据2203班同学，请查看重新填写或退出登录";
+    welcomeMessages["222003874"] = "检测到您的学号并非大数据2203班同学，请查看重新填写或退出登录";
+    welcomeMessages["222003893"] = "检测到您的学号并非大数据2203班同学，请查看重新填写或退出登录";
+
+
+    document.getElementById("login-form").addEventListener("submit", function(event) {
+      event.preventDefault(); // 阻止表单默认提交行为
+
+      // 获取学号和密码输入框的值
+      var studentId = document.getElementById("studentid").value;
+      var password = document.getElementById("password").value;
+
+      // 检查学号和密码的条件
+      if (studentId >= "222003854" && studentId <= "222003893" && studentId !== "222003870" && studentId !== "222003874") {
+        if (welcomeMessages.hasOwnProperty(studentId)) {
+          var welcomeMessage = welcomeMessages[studentId];
+          alert(welcomeMessage);
+          window.location.href = "homepeag/index.html";
+        } else {
+
+          alert("欢迎同学！"); // 在这里可以添加默认的欢迎信息
+          window.location.href = "homepeag/index.html";
+        }
+      } else {
+        alert("检测到您的学号并非大数据2203班同学，请查看重新填写或退出登录");
+        // 清空输入框的值
+        document.getElementById("studentid").value = "";
+        document.getElementById("password").value = "";
+      }
+    });
+    function seekHelp() {
+    window.location.href = "homepeag/helpme.html";
+  }
+  </script>
+</body>
+</html>
